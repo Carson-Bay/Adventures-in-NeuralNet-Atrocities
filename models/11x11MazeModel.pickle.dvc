@@ -1,0 +1,4 @@
+outs:
+- md5: 90b7b0cb2ac6aebaf902b2c65d923091
+  size: 196002
+  path: 11x11MazeModel.pickle
