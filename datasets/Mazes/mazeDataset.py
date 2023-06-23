@@ -1,5 +1,6 @@
 from PIL import Image
 import random
+import sys
 import numpy as np
 import time
 import pickle
@@ -8,14 +9,15 @@ import matplotlib.pyplot as plt
 #TODO Variable renaming
 #TODO Python recursion limits
 
+MAX_DEPTH = 20000
 
 def maze_template():
     size = int(input("Size of Mazes: "))
     if size % 2 == 0:
         size += 1
     
-    mazeTemplate = np.zeros((size, size))
-    openTemplate = np.zeros((size, size))
+    mazeTemplate = np.zeros((size, size), dtype=np.uint8)
+    openTemplate = np.zeros((size, size), dtype=np.uint8)
 
     for i in range(1, size - 1, 2):
         for j in range(1, size - 1, 2):
@@ -42,10 +44,15 @@ def get_neighbours(coord, openTemplate, size):
             n.append((x, y + j))
     return n
 
-def evaluate_node(node, maze, open_map, size):
+def evaluate_node(node, maze, open_map, size, depth):
 
     current_x, current_y = node
     open_map[current_x, current_y] = 0
+
+    depth += 1
+
+    if depth >= MAX_DEPTH:
+        return maze, open_map
 
     while(len(get_neighbours(node, open_map, size)) > 0):
         next = random.choice(get_neighbours(node, open_map, size))
@@ -56,7 +63,7 @@ def evaluate_node(node, maze, open_map, size):
         wall_Y = int((current_y + next_y) / 2)
         maze[wall_X, wall_Y] = 1
 
-        maze, open_map = evaluate_node(next, maze, open_map, size)
+        maze, open_map = evaluate_node(next, maze, open_map, size, depth)
     
     return maze, open_map
 
@@ -64,7 +71,7 @@ def gen_maze(size, mazeT, open_mapT):
     initial_x = random.randrange(1, size, 2)
     initial_y = random.randrange(1, size, 2)
 
-    maze, open_map = evaluate_node((initial_x, initial_y), mazeT, open_mapT, size)
+    maze, open_map = evaluate_node((initial_x, initial_y), mazeT, open_mapT, size, 0)
 
     # Create entrance and exit
     start = random.randrange(1, size - 1, 2)
@@ -75,9 +82,8 @@ def gen_maze(size, mazeT, open_mapT):
 
     return maze.flatten()
 
-
-
 def main():
+    sys.setrecursionlimit(40000)
     mazeTemplate, openTemplate, size = maze_template()
 
     numberOfMazes = int(input("Number of Mazes to Gen: "))
@@ -92,15 +98,21 @@ def main():
 
         mazes[i] = gen_maze(size, mazeT, openT)
     
-    #img = Image.fromarray(mazes[1].reshape(size, size)*255, "L")
-    
-    #img.save("test.jpg")
 
     runTime = time.perf_counter() - startTime
     print(runTime)
 
-    with open("NewMazeDataset21.pickle", "wb") as fout:
-        pickle.dump(mazes, fout)
+
+    if numberOfMazes == 1:
+        reshaped_maze = mazes[0].reshape(size, size) * 255
+
+        maze_img = Image.fromarray(reshaped_maze)
+
+        maze_img.show()
+
+    else:
+        with open("NewMazeDataset11.pickle", "wb") as fout:
+            pickle.dump(mazes, fout)
 
 
 if __name__ == "__main__":

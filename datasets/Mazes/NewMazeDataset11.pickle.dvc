@@ -1,4 +1,4 @@
 outs:
-- md5: 576bf3d3f5b270ce4822e9cca035e20e
-  size: 176400163
+- md5: bffb96ef4773b22f58fd11cd1720c11d
+  size: 48400162
   path: NewMazeDataset11.pickle

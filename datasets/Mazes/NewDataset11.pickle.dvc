@@ -1,0 +1,4 @@
+outs:
+- md5: 08f48f7acd0adadec42215caa210e29e
+  size: 96800324
+  path: NewDataset11.pickle

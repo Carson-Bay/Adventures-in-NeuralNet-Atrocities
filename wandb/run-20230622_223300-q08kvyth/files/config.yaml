@@ -1,0 +1,45 @@
+wandb_version: 1
+
+learning_rate:
+  desc: null
+  value: 0.01
+hidden_layer_sizes:
+  desc: null
+  value:
+  - 100
+dataset:
+  desc: null
+  value: NewDataset11
+activation:
+  desc: null
+  value: Sigmoid
+epochs:
+  desc: null
+  value: 40
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.6
+    cli_version: 0.15.4
+    framework: sklearn
+    is_jupyter_run: true
+    is_kaggle_kernel: false
+    start_time: 1687465985.242018
+    t:
+      1:
+      - 5
+      - 53
+      - 55
+      2:
+      - 5
+      - 53
+      - 55
+      3:
+      - 2
+      - 16
+      - 23
+      4: 3.10.6
+      5: 0.15.4
+      8:
+      - 1
+      - 5

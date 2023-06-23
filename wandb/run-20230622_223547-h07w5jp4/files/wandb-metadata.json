@@ -1,0 +1,76 @@
+{
+    "os": "Linux-5.15.90.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "python": "3.10.6",
+    "heartbeatAt": "2023-06-22T20:35:54.368410",
+    "startedAt": "2023-06-22T20:35:47.557882",
+    "docker": null,
+    "cuda": null,
+    "args": null,
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "https://github.com/Carson-Bay/Adventures-in-NeuralNet-Atrocities.git",
+        "commit": "7e728c574ee78fa021f32c29c038d1385d555584"
+    },
+    "email": "cgbman02@gmail.com",
+    "root": "/home/ubuntu/Projects/Adventures-in-NeuralNet-Atrocities",
+    "host": "DESKTOP-7579QSQ",
+    "username": "ubuntu",
+    "executable": "/home/ubuntu/Projects/Adventures-in-NeuralNet-Atrocities/venv/bin/python",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 3096.0,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3096.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3096.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3096.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3096.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3096.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3096.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3096.0,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3096.0,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "total": 1006.853931427002,
+        "used": 6.0231170654296875
+    },
+    "memory": {
+        "total": 7.66595458984375
+    }
+}
