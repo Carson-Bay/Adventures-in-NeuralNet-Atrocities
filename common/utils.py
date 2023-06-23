@@ -21,6 +21,7 @@ def store_model(filename, *args):
 def load_model(filename, layers):
     output = []
     with open(filename, "rb") as fin:
-        for i in range(2*(layers-1)):
-            output.append(pickle.load(fin))
-    return output
+        
+        weights = pickle.load(fin)
+        biases = pickle.load(fin)
+    return weights, biases
